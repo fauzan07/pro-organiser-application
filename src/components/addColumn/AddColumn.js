@@ -60,7 +60,7 @@ function AddColumn(props) {
   return (
     <div>
        <div className={style.addColumnBox} id="addColumnBox">
-        <div>Add a Column</div>
+        <div>Add a column</div>
       </div>
         <br />
         {showModal && (
