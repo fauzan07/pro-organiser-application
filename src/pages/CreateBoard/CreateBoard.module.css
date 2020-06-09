@@ -1,0 +1,60 @@
+
+.CreateTitle{
+  float : left;
+  padding: 25px 0;
+  color: #0d78be;
+  font-size: 25px;
+}
+
+.Createlable{
+float: left;
+padding-bottom: 10px;
+padding-top: 10px;
+}
+
+
+input[type=text] {
+    width: 600%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .CreateButton{
+    padding: 8px 14px;
+    background-color: #0d78be;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+    margin-top: 10px;
+}
+
+.CreateButton:hover {
+    background-color: #0d78be;
+}
+  
+  .CreateMain {
+    background-color: #fff;
+    float: left;
+    padding-left: 20px;
+  }
+
+  @media only screen and (max-width:500px){
+
+    input[type=text] {
+      width: 150%;
+      padding: 10px 20px;
+      margin: 8px 0;
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    
+  }
+  

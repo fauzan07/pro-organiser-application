@@ -1,0 +1,48 @@
+.BoardContainer {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+.BoardsTitle{
+    text-align: start;
+    padding: 20px 0px;
+    color: #0d78be;
+    font-size: 25px;
+}
+
+.BoardsData{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 30px;
+    grid-column-gap: 10px;
+    text-align: center;
+}
+
+.BoardsData a{
+    text-decoration: none;
+}
+
+.BoardItem {
+  border: 1px solid gray;
+  padding: 12%;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 4px 4px #D0D0D0;
+}
+
+.BoardName{
+    text-transform: capitalize;
+    color: #000;
+    font-size: 15px;
+}
+
+.BoardItem:hover {
+    background-color: #ccd9ff;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .BoardsData {
+      grid-template-columns: 1fr;
+    }
+  }
+  

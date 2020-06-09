@@ -1,0 +1,39 @@
+.addColumnBox{
+    border: 1px dashed gray;
+    padding: 25%;
+    width: 40%;
+    margin-left: 5%;
+    align-self: flex-start;
+}
+.addColumnBox:hover{
+    cursor: pointer;
+    border: 1px dashed black;
+}
+.FormInput{
+    padding:10px;
+    
+}
+
+.Lable{
+   float: left;
+   padding-left: 50px;
+   padding-right: 20px;
+   padding-top: 7px;
+}
+
+
+.AddColumnForm input[type="text"]{
+    width: 60%;
+    padding: 6px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+
+  .AddButton{
+    padding: 5px 20px;
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
