@@ -45,7 +45,7 @@ class CreateBoard extends Component {
             
             Axios.post('https://pro-organiser-app.firebaseio.com/boardContents.json', selectedBoard)
                 .then(response => {
-                    alert("Board added succesfully");
+                    // alert("Board added succesfully");
                                    this.props.history.push('/');
                                 
                         }).catch(error => {console.log(error)});

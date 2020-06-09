@@ -49,7 +49,7 @@ function AddColumn(props) {
       <>
       {formIncompleteError ? <p style={{color : 'red'}}>Kindly complete the form before adding Column</p> : null}
       <div className={style.AddColumnForm}>
-        <h2>Add a Column</h2>
+        <h2>Add column</h2>
        <div className={style.FormInput}><span className={style.Lable}>Enter a column name:</span><input type="text" id="column_name" value={columnName} placeholder="Enter a column name" ref={columnNames} onChange={(event) => setColumnName(event.target.value)}/></div>
       </div>
       <button className={style.AddButton} id="CreateColumn" disabled={formComplete} onClick={handleAddColumnClick}>Add Column</button>

@@ -55,8 +55,8 @@ export const AllBoards = () => {
                             },
                           }}
                         >
-                          <div className={style.BoardItem} key={item[0]}>
-                            <span className={style.BoardName} >
+                          <div className={style.BoardItem} key={item[1].boardName}>
+                            <span className={style.BoardName}>
                                {item[1].boardName}
                             </span>
                           </div>
