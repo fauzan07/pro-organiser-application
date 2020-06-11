@@ -84,7 +84,7 @@ function Card(props) {
           }
         )
           .then((response) => {
-            alert("card edited succesfully");
+            // alert("card edited succesfully");
             setIsCardEdited(true);
           })
           .catch((error) => console.log("Error in editDetails" + error));
@@ -101,7 +101,7 @@ function Card(props) {
           }
         )
           .then((response) => {
-            alert("card added succesfully");
+            // alert("card added succesfully");
             setIsCardAdded(true);
           })
           .catch((error) => console.log("Error" + error));
@@ -147,7 +147,7 @@ function Card(props) {
     Axios
     .delete(`https://pro-organiser-app.firebaseio.com/boardContents/${boardId}/column/${columnId}/card/${cardId}.json`)
       .then((response) => {
-        alert("card archived succesfully");
+        // alert("card archived succesfully");
         setIsCardDelete(true);
       })
       .catch((error) => console.log("Error" + error));
