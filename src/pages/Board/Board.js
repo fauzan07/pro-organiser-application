@@ -44,7 +44,7 @@ export const Board = (props) => {
         Axios
         .delete(`https://pro-organiser-app.firebaseio.com/boardContents/${props.location.state.boardId}.json`)
           .then((response) => {
-            // alert("board deleted succesfully");
+            alert("board deleted succesfully");
             history.push("/");
           })
           .catch((error) => console.log("Error" + error));
@@ -57,7 +57,7 @@ export const Board = (props) => {
       Axios
       .delete(`https://pro-organiser-app.firebaseio.com/boardContents/${props.location.state.boardId}/column/${columnId}.json`)
         .then((response) => {
-          // alert("column deleted succesfully");
+          alert("column deleted succesfully");
           setIsColumnDelete(true);
         })
         .catch((error) => console.log("Error" + error));

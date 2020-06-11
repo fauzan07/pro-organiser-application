@@ -25,7 +25,7 @@ function AddColumn(props) {
         name: columnName,
       })
         .then((response) => {
-          // alert("column added succesfully");
+          alert("column added succesfully");
           props.setShowColumn(true);
         })
         .catch((error) => console.log(error));
