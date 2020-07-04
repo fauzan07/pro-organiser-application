@@ -1,0 +1,53 @@
+.Navbar{
+    height: 40px;
+    background-color: #0d78be;
+    color: #fff;
+    display: flex;
+    padding-left: 20px;
+    padding-top: 12px;
+}
+
+.Navbar a{
+  text-decoration: none;
+}
+
+.NavbarTitle{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.NavLinks{
+display: flex;
+padding-left: 880px;
+}
+
+.NavTitle,.NavTitle2,.NavTitle3{
+  color: #fff;
+  padding-right: 10px;
+  padding-left: 25px;
+  padding-top: 5px;
+  float: right;
+  font-size: 16px;
+}
+
+@media only screen and (max-width:500px){
+
+  .NavbarTitle{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+  
+.NavLinks{
+  display: flex;
+  padding-left: 10px;
+  }
+  
+  .NavTitle,.NavTitle2,.NavTitle3{
+  
+    font-size: 13px;
+  }
+  
+  
+}

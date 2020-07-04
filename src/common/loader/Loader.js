@@ -1,17 +1,14 @@
 import React from 'react';
 import './Loader.css'
+import Spinner from './assets/loading1.gif';
 
 
 function Loader() {
     return (
        
-        <div id="fountainG">
-            <div id="fountainG_1" className="fountainG"></div>
-            <div id="fountainG_2" className="fountainG"></div>
-            <div id="fountainG_3" className="fountainG"></div>
-            <div id="fountainG_4" className="fountainG"></div>
-            <div id="fountainG_5" className="fountainG"></div>
-            <div id="fountainG_6" className="fountainG"></div>
+       
+        <div className="spinner">
+        <img src={Spinner} alt="loading"/>
         </div>
         
     )

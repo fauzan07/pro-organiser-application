@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import style from "./AddColumn.module.css";
 import Modal from './../../common/Modal/Modal';
 import Axios from "axios";
+import { AuthContext } from '../../context/Auth';
 
 function AddColumn(props) {
+  const { currentUser } = useContext(AuthContext);
+  
   const [showModal, setShowModal] = useState(false);
   const [columnName, setColumnName] = useState("");
   const [formComplete, setFormComplete] = useState(false);
   const [formIncompleteError, setFormIncompleteError] = useState(false);
 
   const columnNames  = React.useRef();
+
+  const userId = currentUser.uid;
 
   useEffect(() => {
     modalOpenHandler();
@@ -21,7 +26,7 @@ function AddColumn(props) {
           setFormIncompleteError(true);
     } else {
       // add column name in firebase
-      Axios.post(`https://pro-organiser-app.firebaseio.com/boardContents/${props.boardId}/column.json`, {
+      Axios.post(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${props.boardId}/column.json`, {
         name: columnName,
       })
         .then((response) => {

@@ -13,7 +13,7 @@ padding-top: 10px;
 }
 
 
-input[type=text] {
+.CreateMain input[type=text] {
     width: 600%;
     padding: 10px 20px;
     margin: 8px 0;
@@ -45,7 +45,7 @@ input[type=text] {
 
   @media only screen and (max-width:500px){
 
-    input[type=text] {
+    .CreateMain input[type=text] {
       width: 150%;
       padding: 10px 20px;
       margin: 8px 0;

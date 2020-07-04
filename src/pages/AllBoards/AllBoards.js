@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import style from  './AllBoards.module.css';
 import Axios from 'axios';
 import { Link } from "react-router-dom";
 import Loader from "../../common/loader/Loader";
+import { AuthContext } from '../../context/Auth';
 
 export const AllBoards = () => {
+
+    const { currentUser } = useContext(AuthContext);
 
     const [boardContents, setBoardContents] = useState({});
     const [showBoard, setShowBoard] = useState(false);
     const [loading, setLoading] = useState(true);
+
+    const userId = currentUser.uid;
 
     document.title = "Pro Organizer";
 
@@ -18,7 +23,7 @@ export const AllBoards = () => {
   
     const getBoardContents = () => {
         Axios
-        .get("https://pro-organiser-app.firebaseio.com/boardContents.json")
+        .get(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents.json`)
         .then((response) => {
           setTimeout(setBoardContents(response.data), 50000);
           setLoading(false);
@@ -47,7 +52,7 @@ export const AllBoards = () => {
                       Object.entries(boardContents).map((item) => (
                         <Link
                           to={{
-                            pathname: "/" + item[1].boardName,
+                            pathname: "/board/" + item[1].boardName,
                             state: {
                               type: item[1].boardType,
                               members: item[1].members,

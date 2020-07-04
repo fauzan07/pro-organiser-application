@@ -1,0 +1,114 @@
+.authentication{
+  background-image: url('./assets/bg.jpg');
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease-out;
+ }
+  
+  main {
+    min-height: 100vh;
+    /* background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25)); */
+    padding: 25px;
+  }
+
+  .main-title{
+    color: #0d78be;
+    text-align: center;
+    font-family: 'Carter One', cursive;
+    font-size: 65px;
+    text-shadow: 3px 6px rgba(17, 17, 17, 0.9);
+  }
+
+  .signup-box{
+    border: 1px solid gray;
+    padding: 0% 10% 10% 6%;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 4px 4px #D0D0D0;
+  }
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 0px auto;
+  }
+  
+  .formHeader {
+    font-size: 30px;
+    font-weight: 500;
+    /* padding: 15px 0 30px; */
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    color: #222;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    width: 100%;
+    border: 1px solid #a8a8a8;
+    padding: 10px 12px;
+    border-radius: 4px;
+  }
+  
+  .form-group input:focus {
+    outline-color: #07787c;
+  }
+
+  .btn {
+    cursor: pointer;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    text-transform: capitalize;
+  }
+  
+  .btn-primary {
+    background-color: #27a6aa;
+    color: #fff;
+    float: right;
+  }
+  
+  .btn-primary:hover {
+    background-color: #07787c;
+  }
+
+  .btn-success{
+    background-color: #068f6d;
+    color: #fff;
+  }
+
+  .btn-success:hover {
+    background-color: #086850;
+  }
+
+  .alert {
+  padding: 15px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  margin: 15px 0px
+}
+
+  @media only screen and (max-width: 500px) {
+    .main-title{
+      color: #0d78be;
+      text-align: center;
+      font-family: 'Carter One', cursive;
+      font-size: 45px;
+    }
+  
+ }
+ 

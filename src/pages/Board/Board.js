@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import style from  './Board.module.css';
 import Axios from 'axios';
 import { withRouter, useHistory } from "react-router-dom";
 import Loader from "../../common/loader/Loader";
 import AddColumn from "../../components/addColumn/AddColumn";
 import Card from "../../components/card/Card";
+import { AuthContext } from '../../context/Auth';
 
 export const Board = (props) => {
+    const { currentUser } = useContext(AuthContext);
+
     const name = props.match.params.boardName;
     const members = props.location.state.members;
 
@@ -15,6 +18,8 @@ export const Board = (props) => {
     const [loading, setLoading] = useState(true);
     const [isCardDragged, setIsCardDragged] = useState(false);
     const [isColumnDelete, setIsColumnDelete] = useState(false);
+
+    const userId = currentUser.uid;
 
      // to use history function
     const history = useHistory();
@@ -30,7 +35,7 @@ export const Board = (props) => {
   
     const getColumnData = () => {
         Axios
-        .get(`https://pro-organiser-app.firebaseio.com/boardContents/${props.location.state.boardId}/column.json`)
+        .get(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${props.location.state.boardId}/column.json`)
         .then((response) => {
             setTimeout(setColumnData(response.data), 5000);
           setLoading(false);
@@ -42,7 +47,7 @@ export const Board = (props) => {
     const handleBoardDelete = (e) => {
       if (window.confirm("Are you sure you want to delete the board?")) {
         Axios
-        .delete(`https://pro-organiser-app.firebaseio.com/boardContents/${props.location.state.boardId}.json`)
+        .delete(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${props.location.state.boardId}.json`)
           .then((response) => {
             alert("board deleted succesfully");
             history.push("/");
@@ -55,7 +60,7 @@ export const Board = (props) => {
     const handleColumnDelete = (columnId, e) => {
       if (window.confirm("Are you sure you want to delete the Column?")) {
       Axios
-      .delete(`https://pro-organiser-app.firebaseio.com/boardContents/${props.location.state.boardId}/column/${columnId}.json`)
+      .delete(`https://pro-organiser-app.firebaseio.com/${userId}//boardContents/${props.location.state.boardId}/column/${columnId}.json`)
         .then((response) => {
           alert("column deleted succesfully");
           setIsColumnDelete(true);
@@ -77,7 +82,7 @@ export const Board = (props) => {
     if (draggedCardData !== null) {
       //   // Delete from previous column
       Axios
-      .delete(`https://pro-organiser-app.firebaseio.com/boardContents/${props.location.state.boardId}/column/${prevColId}/card/${prevCardId}.json`)
+      .delete(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${props.location.state.boardId}/column/${prevColId}/card/${prevCardId}.json`)
         .then((response) => {
           console.log("card removed");
         })
@@ -85,7 +90,7 @@ export const Board = (props) => {
 
       // Add card to new column
       Axios
-      .post(`https://pro-organiser-app.firebaseio.com/boardContents/${props.location.state.boardId}/column/${droppedColumnId}/card.json`,
+      .post(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${props.location.state.boardId}/column/${droppedColumnId}/card.json`,
         {
           cardTitle: draggedCardData.cardTitle,
           team: draggedCardData.team,

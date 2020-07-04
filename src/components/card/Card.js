@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import style from "./Card.module.css";
 import Modal from './../../common/Modal/Modal';
 import Axios from "axios";
+import { AuthContext } from '../../context/Auth';
 
 function Card(props) {
+  const { currentUser } = useContext(AuthContext);
+
   const [showModal, setShowModal] = useState(false);
   const { members, columnId, boardId, boardTitle, isCardDragged } = props;
   const [cardData, setCardData] = useState("");
@@ -37,6 +40,8 @@ function Card(props) {
   const descrpDetails = React.useRef();
   const datesDetails = React.useRef();
 
+  const userId = currentUser.uid;
+
     // to Hide past date
     var today = new Date();
     var month,
@@ -57,7 +62,7 @@ function Card(props) {
 
   const getCardData = () => {
     Axios
-    .get(`https://pro-organiser-app.firebaseio.com/boardContents/${boardId}/column/${columnId}/card.json`)
+    .get(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${boardId}/column/${columnId}/card.json`)
     .then((response) => {
         setCardData(response.data);
     })
@@ -75,7 +80,7 @@ function Card(props) {
       // if user wants to edit then put request is used
       if (editDetails) {
         Axios
-        .put(`https://pro-organiser-app.firebaseio.com/boardContents/${boardId}/column/${columnId}/card/${cardId}.json`,
+        .put(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${boardId}/column/${columnId}/card/${cardId}.json`,
           {
             cardTitle: cardTitle === "" ? cardName : cardTitle,
             team: team.length === 0 ? teamDetail : team,
@@ -92,7 +97,7 @@ function Card(props) {
       //  if user wants to add a new card
       else {
         Axios
-        .post(`https://pro-organiser-app.firebaseio.com/boardContents/${boardId}/column/${columnId}/card.json`,
+        .post(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${boardId}/column/${columnId}/card.json`,
           {
             cardTitle: cardTitle,
             team: team,
@@ -145,7 +150,7 @@ function Card(props) {
   // handles archive on card archive click
   const handleArchive = (e) => {
     Axios
-    .delete(`https://pro-organiser-app.firebaseio.com/boardContents/${boardId}/column/${columnId}/card/${cardId}.json`)
+    .delete(`https://pro-organiser-app.firebaseio.com/${userId}/boardContents/${boardId}/column/${columnId}/card/${cardId}.json`)
       .then((response) => {
         alert("card archived succesfully");
         setIsCardDelete(true);
